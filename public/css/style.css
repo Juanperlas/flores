@@ -1,0 +1,224 @@
+/* --- Estilos Globales y Fuentes --- */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: #f4f7f9;
+  color: #333;
+}
+
+/* --- Maquetación Principal del Editor --- */
+.editor-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.controls-panel {
+  width: 450px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.preview-panel {
+  flex-grow: 1;
+  display: flex;
+}
+
+.preview-panel iframe {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Estilos de los Controles --- */
+.controls-title {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.controls-subtitle {
+  font-weight: 300;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+  font-size: 0.9em;
+}
+
+.config-section {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.config-section h2 {
+  font-size: 1.4em;
+  color: #34495e;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #34495e;
+  font-size: 0.9em;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #fdcb6e;
+  box-shadow: 0 0 5px rgba(253, 203, 110, 0.5);
+}
+
+.input-with-button {
+  display: flex;
+  gap: 10px;
+}
+.input-with-button input {
+  flex-grow: 1;
+}
+.icon-btn {
+  padding: 10px;
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2em;
+}
+
+/* Estilos para Selector de Temas */
+.theme-selector {
+  display: flex;
+  gap: 10px;
+}
+.theme-selector input[type="radio"] {
+  display: none;
+}
+.theme-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #dfe6e9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.theme-option:hover {
+  transform: scale(1.1);
+}
+.theme-selector input[type="radio"]:checked + label {
+  border-color: #fdcb6e;
+  transform: scale(1.1);
+}
+.theme-1-preview {
+  background: linear-gradient(-45deg, #f093fb, #f5576c);
+}
+.theme-2-preview {
+  background: linear-gradient(-45deg, #4facfe, #00f2fe);
+}
+.theme-3-preview {
+  background: linear-gradient(-45deg, #43e97b, #38f9d7);
+}
+
+/* Estilos para Mensajes y Fotos Dinámicos */
+.message-input-group,
+.image-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.message-input-group textarea,
+.image-input-group input {
+  flex-grow: 1;
+}
+
+.image-input-group .image-preview {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.btn {
+  padding: 10px 18px;
+  border: none;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: #27ae60;
+}
+.btn-danger {
+  background-color: #e74c3c;
+  padding: 8px 12px;
+  font-size: 0.8em;
+}
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+.btn-primary {
+  background-color: #3498db;
+  margin-top: 30px;
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1em;
+}
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+/* --- RESPONSIVIDAD DEL EDITOR --- */
+@media (max-width: 900px) {
+  .editor-container {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+  .controls-panel {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  .preview-panel {
+    height: 70vh;
+  }
+}

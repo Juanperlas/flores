@@ -1,0 +1,433 @@
+/* Utility Class para Ocultar Elementos */
+.hidden {
+  display: none !important;
+}
+/* --- Estilos Globales del Escenario --- */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+/* --- Fondos (Temas) --- */
+.stage-body {
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+.theme-1 {
+  background: linear-gradient(-45deg, #f093fb, #f5576c, #4facfe, #00f2fe);
+}
+.theme-2 {
+  background: linear-gradient(-45deg, #84fab0, #8fd3f4, #a0ced9, #c0e0e8);
+}
+.theme-3 {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* --- Vistas de Previsualización (Pre-1 y Pre-2) --- */
+.preview-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.5s ease;
+  z-index: 10;
+}
+.preview-view.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- Contenido Pre-1 (Intro) --- */
+.intro-title {
+  font-size: clamp(2.5em, 10vw, 5em);
+  margin-bottom: 20px;
+}
+.sender-receiver-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px 40px;
+  color: #333;
+  text-shadow: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  font-size: clamp(1em, 3vw, 1.3em);
+}
+.sender-receiver-card p {
+  margin: 5px 0;
+}
+.secondary-message {
+  font-size: clamp(1em, 4vw, 1.8em);
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+/* --- Contenido Pre-2 (Cuerpo) --- */
+.body-title {
+  font-size: clamp(2em, 8vw, 4em);
+  margin-bottom: 40px;
+}
+
+/* --- Carrusel de Imágenes --- */
+.image-carousel-container {
+  position: relative;
+  width: clamp(250px, 80%, 600px);
+  height: clamp(180px, 50vw, 400px);
+  margin-bottom: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+}
+.image-carousel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.image-carousel img {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.5em;
+  z-index: 20;
+  border-radius: 5px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.carousel-btn:hover {
+  opacity: 1;
+}
+.prev-btn {
+  left: 10px;
+}
+.next-btn {
+  right: 10px;
+}
+
+/* --- YouTube Player --- */
+#youtube-player-container {
+  position: absolute;
+  bottom: -9999px;
+  left: -9999px;
+}
+.loading-animation,
+.error-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+.error-message {
+  background: #e74c3c;
+}
+
+/* --- Controles de Música --- */
+.music-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  padding: 8px 15px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 40;
+  transition: opacity 0.5s ease;
+}
+.music-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* --- Animación de Flores --- */
+#falling-elements-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+.flower {
+  position: absolute;
+  top: -50px;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  to {
+    transform: translateY(105vh) rotate(360deg);
+  }
+}
+
+/* --- Botón de Mensajes --- */
+.messages-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f1c40f;
+  color: #333;
+  padding: 15px 25px;
+  font-size: 1.1em;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 30;
+  border: none;
+  cursor: pointer;
+}
+.messages-btn .icon {
+  font-size: 1.5em;
+  line-height: 1;
+}
+.messages-btn:hover {
+  background-color: #f39c12;
+}
+
+/* --- Modal de Mensajes --- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px;
+  width: clamp(280px, 90%, 600px);
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  color: #333;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2em;
+  cursor: pointer;
+  color: #888;
+}
+.close-button:hover {
+  color: #333;
+}
+.modal-messages-carousel {
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+.modal-message-card {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 20px;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+.modal-carousel-btn {
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1.2em;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.modal-carousel-btn.prev-btn {
+  left: 10px;
+}
+.modal-carousel-btn.next-btn {
+  right: 10px;
+}
+.modal-carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* --- RESPONSIVIDAD DEL ESCENARIO --- */
+@media (max-width: 600px) {
+  .sender-receiver-card {
+    padding: 15px 20px;
+  }
+  .carousel-btn {
+    padding: 5px 8px;
+    font-size: 1.2em;
+  }
+  .messages-btn {
+    padding: 10px 15px;
+    font-size: 0.9em;
+    gap: 5px;
+    bottom: 10px;
+    right: 10px;
+  }
+  .messages-btn .icon {
+    font-size: 1.2em;
+  }
+  .modal-content {
+    padding: 20px;
+    width: 95%;
+  }
+  .modal-message-card {
+    font-size: 1em;
+    padding: 10px;
+  }
+}
+/* --- Mejoras Visuales para Controles de Música --- */
+.music-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.music-btn:active {
+  transform: scale(0.9);
+}
+
+/* --- Estilos para Notificaciones Toast --- */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.toast {
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.5s forwards, fadeOut 0.5s forwards 3s;
+}
+.toast.loading {
+  background-color: #3498db;
+  animation: slideIn 0.5s forwards; /* El de carga no desaparece solo */
+}
+.toast.success {
+  background-color: #2ecc71;
+}
+.toast.error {
+  background-color: #e74c3c;
+  animation-duration: 0.5s, 0.5s, 5s; /* El de error dura más */
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+}
+
+/* --- Estilos para Elementos Animados (GIFs y Emojis) --- */
+.falling-emoji {
+  position: absolute;
+  top: -50px;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  animation: fall linear infinite;
+  user-select: none;
+}
+
+.falling-gif {
+  position: absolute;
+  top: -50px;
+  width: clamp(30px, 8vw, 60px);
+  height: auto;
+  animation: fall linear infinite;
+  user-select: none;
+}
+
+/* Renombramos la animación para evitar conflictos (aunque no es estrictamente necesario) */
+@keyframes fall {
+  to {
+    transform: translateY(105vh) rotate(360deg);
+  }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienes un Regalo Especial</title>
+    <link rel="stylesheet" href="css/viewer-style.css" />
+  </head>
+  <body id="stage-body" class="stage-body theme-1">
+    <div id="falling-elements-container"></div>
+
+    <div id="pre-1-view" class="preview-view active">
+      <h1 id="intro-main-message" class="intro-title">
+        Feliz 21 de Setiembre Amor
+      </h1>
+      <div class="sender-receiver-card">
+        <p>De: <span id="sender-name">Tu nombre</span></p>
+        <p>Para: <span id="receiver-name">Nombre de el/ella</span></p>
+      </div>
+      <p id="intro-secondary-message" class="secondary-message"></p>
+    </div>
+
+    <div id="pre-2-view" class="preview-view hidden">
+      <h1 id="body-main-title" class="body-title">Espero que te encante</h1>
+
+      <div
+        id="image-carousel-container"
+        class="image-carousel-container hidden"
+      >
+        <div id="image-carousel" class="image-carousel"></div>
+        <button id="prev-image-btn" class="carousel-btn prev-btn">&lt;</button>
+        <button id="next-image-btn" class="carousel-btn next-btn">&gt;</button>
+      </div>
+
+      <div id="youtube-player-container">
+        <div id="youtube-player"></div>
+        <div id="youtube-loading" class="loading-animation hidden"></div>
+        <div id="youtube-error" class="error-message hidden">
+          Error al cargar la música.
+        </div>
+      </div>
+
+      <div id="music-controls" class="music-controls hidden">
+        <button id="rewind-btn" class="music-btn">« 5s</button>
+        <button id="play-pause-btn" class="music-btn play-btn">▶️</button>
+        <button id="forward-btn" class="music-btn">5s »</button>
+      </div>
+
+      <button id="open-messages-modal-btn" class="btn messages-btn hidden">
+        <span class="icon">✉️</span> Mensajes
+      </button>
+    </div>
+
+    <div id="messages-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div id="modal-messages-carousel" class="modal-messages-carousel"></div>
+        <button id="prev-message-btn" class="modal-carousel-btn prev-btn">
+          &lt;
+        </button>
+        <button id="next-message-btn" class="modal-carousel-btn next-btn">
+          &gt;
+        </button>
+      </div>
+    </div>
+
+    <script src="js/viewer.js"></script>
+  </body>
+  <div id="toast-container"></div>
+</html>
