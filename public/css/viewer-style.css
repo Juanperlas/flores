@@ -290,8 +290,11 @@ html {
   width: 100%;
 }
 .modal-message-card {
+  /* Estas dos líneas son las que solucionan el problema */
   flex-shrink: 0;
   width: 100%;
+
+  /* El resto de tus estilos aquí */
   padding: 20px;
   font-size: 1.2em;
   line-height: 1.6;
@@ -429,5 +432,69 @@ html {
 @keyframes fall {
   to {
     transform: translateY(105vh) rotate(360deg);
+  }
+}
+/* ================================== */
+/* ESTILOS PARA LA PANTALLA DE REGALO */
+/* ================================== */
+.gift-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #f093fb, #f5576c); /* Un fondo bonito */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease, visibility 1s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.gift-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.gift-box {
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+
+.gift-icon {
+  font-size: clamp(100px, 30vw, 200px);
+}
+
+.open-gift-btn {
+  margin-top: 20px;
+  padding: 15px 40px;
+  font-size: 1.5em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  background-color: #ffffff;
+  color: #e73c7e;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.open-gift-btn:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }

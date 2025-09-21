@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¡Tienes un Regalo Especial!</title>
+    <meta property="og:title" content="Recibiste unas Flores Amarillas 🌻" />
+    <meta
+      property="og:description"
+      content="Una persona especial te ha preparado un regalo. ¡Haz clic para verlo!"
+    />
+    <meta
+      property="og:image"
+      content="https://floramarilla.site/assets/default-image.png"
+    />
+    <meta property="og:url" content="https://floramarilla.site" />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="css/viewer-style.css" />
+    <link rel="stylesheet" href="css/preview-style.css" />
+  </head>
+  <body id="stage-body" class="stage-body">
+    <div id="gift-overlay" class="gift-overlay">
+      <div class="gift-box">
+        <div class="gift-icon">🎁</div>
+        <button id="open-gift-btn" class="open-gift-btn">¡Ábreme!</button>
+      </div>
+    </div>
+    <div>
+      <div id="falling-elements-container"></div>
+
+      <div id="pre-1-view" class="preview-view">
+        <h1 id="intro-main-message" class="intro-title">Cargando...</h1>
+        <div class="sender-receiver-card">
+          <p>De: <span id="sender-name"></span></p>
+          <p>Para: <span id="receiver-name"></span></p>
+        </div>
+        <p id="intro-secondary-message" class="secondary-message"></p>
+        <button id="next-view-btn" class="next-view-btn">Continuar ✨</button>
+      </div>
+
+      <div id="pre-2-view" class="preview-view hidden">
+        <h1 id="body-main-title" class="body-title"></h1>
+        <div
+          id="image-carousel-container"
+          class="image-carousel-container hidden"
+        >
+          <div id="image-carousel" class="image-carousel"></div>
+        </div>
+        <button id="open-messages-modal-btn" class="messages-btn hidden">
+          <span class="icon">✉️</span> Mensajes
+        </button>
+        <button id="music-disc-btn" class="music-disc-btn hidden"></button>
+      </div>
+
+      <div id="messages-modal" class="modal hidden">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <div
+            id="modal-messages-carousel"
+            class="modal-messages-carousel"
+          ></div>
+          <button id="prev-message-btn" class="modal-carousel-btn prev-btn">
+            &lt;
+          </button>
+          <button id="next-message-btn" class="modal-carousel-btn next-btn">
+            &gt;
+          </button>
+        </div>
+      </div>
+
+      <div id="music-modal" class="modal hidden">
+        <div class="music-modal-content">
+          <span class="close-button">&times;</span>
+          <div id="music-disc-large" class="music-disc-large"></div>
+          <h2 id="music-title">Cargando...</h2>
+          <div class="progress-container">
+            <span id="current-time">0:00</span>
+            <input type="range" id="progress-bar" min="0" value="0" />
+            <span id="duration-time">0:00</span>
+          </div>
+          <div class="music-controls-modal">
+            <button id="rewind-5s">« 5s</button>
+            <button id="play-pause-modal">▶️</button>
+            <button id="forward-5s">5s »</button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="youtube-player"
+        style="position: absolute; top: -9999px; left: -9999px"
+      ></div>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/flores.js"></script>
+  </body>
+</html>

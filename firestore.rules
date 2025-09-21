@@ -2,11 +2,20 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Las creaciones pueden ser leídas por cualquiera que tenga el enlace.
-    // Solo se pueden crear nuevas, pero no modificar ni borrar desde el cliente.
+
     match /creations/{creationId} {
       allow read, create: if true;
-      allow update, delete: if false; // Nadie puede modificar o borrar.
+      allow update, delete: if false;
+    }
+
+    match /codes/{codeId} {
+      allow read: if true;
+      
+      // REGLA CORREGIDA: Permite actualizar si 'isUsed' está cambiando de false a true.
+      allow update: if request.resource.data.isUsed == true 
+                    && resource.data.isUsed == false;
+      
+      allow create, delete: if false;
     }
   }
 }

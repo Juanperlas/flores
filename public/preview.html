@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vista Previa de tu Regalo</title>
+    <link rel="stylesheet" href="css/viewer-style.css" />
+    <link rel="stylesheet" href="css/preview-style.css" />
+  </head>
+  <body id="stage-body" class="stage-body">
+    <div>
+      <div id="falling-elements-container"></div>
+
+      <div id="pre-1-view" class="preview-view">
+        <h1 id="intro-main-message" class="intro-title"></h1>
+        <div class="sender-receiver-card">
+          <p>De: <span id="sender-name"></span></p>
+          <p>Para: <span id="receiver-name"></span></p>
+        </div>
+        <p id="intro-secondary-message" class="secondary-message"></p>
+        <button id="next-view-btn" class="next-view-btn">Continuar ✨</button>
+      </div>
+
+      <div id="pre-2-view" class="preview-view hidden">
+        <h1 id="body-main-title" class="body-title"></h1>
+        <div
+          class="image-carousel-container hidden"
+          id="image-carousel-container"
+        >
+          <div id="image-carousel" class="image-carousel"></div>
+        </div>
+        <button id="open-messages-modal-btn" class="messages-btn hidden">
+          <span class="icon">✉️</span> Mensajes
+        </button>
+        <button id="music-disc-btn" class="music-disc-btn hidden"></button>
+        <button id="acquire-or-edit-btn" class="generate-url-btn">
+          Adquirir o Editar
+        </button>
+      </div>
+
+      <div id="messages-modal" class="modal hidden">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <div
+            id="modal-messages-carousel"
+            class="modal-messages-carousel"
+          ></div>
+          <button id="prev-message-btn" class="modal-carousel-btn prev-btn">
+            &lt;
+          </button>
+          <button id="next-message-btn" class="modal-carousel-btn next-btn">
+            &gt;
+          </button>
+        </div>
+      </div>
+
+      <div id="music-modal" class="modal hidden">
+        <div class="music-modal-content">
+          <span class="close-button">&times;</span>
+          <div id="music-disc-large" class="music-disc-large"></div>
+          <h2 id="music-title">Cargando...</h2>
+          <div class="progress-container">
+            <span id="current-time">0:00</span>
+            <input type="range" id="progress-bar" min="0" value="0" />
+            <span id="duration-time">0:00</span>
+          </div>
+          <div class="music-controls-modal">
+            <button id="rewind-5s">« 5s</button>
+            <button id="play-pause-modal">▶️</button>
+            <button id="forward-5s">5s »</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="close-message-modal" class="modal hidden">
+        <div class="share-modal-content">
+          <h2>Cerrando Previsualización</h2>
+          <p class="share-instructions">
+            Esta ventana se cerrará. Puedes finalizar tu compra en la página
+            principal.
+          </p>
+          <button id="close-preview-now-btn" class="btn btn-primary">
+            Entendido
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="youtube-player"
+        style="position: absolute; top: -9999px; left: -9999px"
+      ></div>
+    </div>
+
+    <script src="js/preview.js"></script>
+  </body>
+</html>

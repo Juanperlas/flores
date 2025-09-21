@@ -11,8 +11,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/viewer-style.css" />
   </head>
-  <body>
+  <body class="editor-page">
     <div class="editor-container">
       <div class="controls-panel">
         <h1 class="controls-title">🌻 Crea tu Regalo</h1>
@@ -92,78 +93,75 @@
 
           <div class="form-group">
             <label>Elige el Elemento Animado</label>
-            <div class="form-group">
-              <label>Elige el Elemento Animado</label>
-              <div class="element-selector" data-preview-section="body">
-                <div class="radio-group">
-                  <input
-                    type="radio"
-                    id="el-f-amarilla"
-                    name="falling-element"
-                    value="assets/flor.gif"
-                    checked
-                  />
-                  <label for="el-f-amarilla">🌻</label>
-                </div>
-                <div class="radio-group">
-                  <input
-                    type="radio"
-                    id="el-rosa"
-                    name="falling-element"
-                    value="assets/rosa.gif"
-                  />
-                  <label for="el-rosa">🌹</label>
-                </div>
-                <div class="radio-group">
-                  <input
-                    type="radio"
-                    id="el-estrella"
-                    name="falling-element"
-                    value="assets/estrella.gif"
-                  />
-                  <label for="el-estrella">✨</label>
-                </div>
-                <div class="radio-group">
-                  <input
-                    type="radio"
-                    id="el-corazon"
-                    name="falling-element"
-                    value="assets/corazon.gif"
-                  />
-                  <label for="el-corazon">❤️</label>
-                </div>
-                <div class="radio-group">
-                  <input
-                    type="radio"
-                    id="el-otro"
-                    name="falling-element"
-                    value="custom"
-                  />
-                  <label for="el-otro">Otro:</label>
-                  <input
-                    type="text"
-                    id="custom-element-input"
-                    maxlength="2"
-                    placeholder="😃"
-                  />
-                </div>
+            <div class="element-selector" data-preview-section="body">
+              <div class="radio-group">
+                <input
+                  type="radio"
+                  id="el-f-amarilla"
+                  name="falling-element"
+                  value="assets/flor.gif"
+                  checked
+                />
+                <label for="el-f-amarilla">🌻</label>
+              </div>
+              <div class="radio-group">
+                <input
+                  type="radio"
+                  id="el-rosa"
+                  name="falling-element"
+                  value="assets/rosa.gif"
+                />
+                <label for="el-rosa">🌹</label>
+              </div>
+              <div class="radio-group">
+                <input
+                  type="radio"
+                  id="el-estrella"
+                  name="falling-element"
+                  value="assets/estrella.gif"
+                />
+                <label for="el-estrella">✨</label>
+              </div>
+              <div class="radio-group">
+                <input
+                  type="radio"
+                  id="el-corazon"
+                  name="falling-element"
+                  value="assets/corazon.gif"
+                />
+                <label for="el-corazon">❤️</label>
+              </div>
+              <div class="radio-group">
+                <input
+                  type="radio"
+                  id="el-otro"
+                  name="falling-element"
+                  value="custom"
+                />
+                <label for="el-otro">Otro:</label>
+                <input
+                  type="text"
+                  id="custom-element-input"
+                  maxlength="2"
+                  placeholder="😃"
+                />
               </div>
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" data-preview-section="body">
             <label>Fotos (0-5)</label>
             <div id="image-inputs-container"></div>
             <button id="add-image-btn" class="btn">Agregar Foto</button>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" data-preview-section="body">
             <label for="music-url-input">URL de Música (YouTube)</label>
             <div class="input-with-button">
               <input
                 type="url"
                 id="music-url-input"
-                value="https://www.youtube.com/watch?v=XpPRXTAUw_o"
+                value="https://www.youtube.com/watch?v=R82Pk0VQWOQ"
               />
               <button
                 id="load-music-btn"
@@ -175,20 +173,86 @@
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" data-preview-section="body">
             <label>Mensajes (Máximo 5)</label>
             <div id="messages-inputs-container"></div>
             <button id="add-message-btn" class="btn">Agregar Mensaje</button>
           </div>
         </section>
-        <button id="share-creation-btn" class="btn btn-primary">
-          Compartir Creación
-        </button>
+
+        <div class="action-buttons-container">
+          <button id="preview-btn" class="btn btn-secondary">
+            Previsualizar
+          </button>
+          <button id="acquire-btn" class="btn btn-primary">Adquirir</button>
+        </div>
       </div>
       <div class="preview-panel">
         <iframe id="preview-iframe" src="ver.html" frameborder="0"></iframe>
       </div>
+
+      <div id="share-modal" class="modal hidden">
+        <div class="share-modal-content">
+          <span class="close-button">&times;</span>
+
+          <div id="payment-view">
+            <h2>¡Tu Personalización está Lista!</h2>
+            <p class="share-instructions">
+              Para poder desbloquearla y compartirla, realiza el pago de
+              <strong>S/. 3.00 soles</strong> al siguiente número Yape/Plin:
+            </p>
+            <div class="payment-number">123-456-789</div>
+            <p class="share-instructions">
+              Envía el comprobante de pago al WhatsApp
+              <strong>+51 123 456 789</strong>. Una vez verificado, te
+              enviaremos tu código de compra.
+            </p>
+            <button id="show-code-input-btn" class="btn btn-primary">
+              Ya tengo mi código de compra
+            </button>
+          </div>
+
+          <div id="code-input-view" class="hidden">
+            <h2>Verificar Código de Compra</h2>
+            <p class="share-instructions">
+              Ingresa el código que te enviamos por WhatsApp para generar tu
+              enlace único.
+            </p>
+            <div class="code-input-group">
+              <input
+                type="text"
+                id="purchase-code-input"
+                placeholder="Ej: ABC-123"
+              />
+              <button id="verify-code-btn" class="btn">Verificar</button>
+            </div>
+            <p id="code-status-message" class="code-status"></p>
+            <button id="back-to-payment-btn" class="btn-secondary">
+              Volver a instrucciones
+            </button>
+          </div>
+
+          <div id="final-link-view" class="hidden">
+            <h2>¡Enlace Generado con Éxito!</h2>
+            <p class="share-instructions">
+              ¡Copia el enlace o escanea el QR para compartir tu creación!
+            </p>
+            <input type="text" id="final-url-input" readonly />
+            <div id="qr-code-container"></div>
+            <p class="share-instructions small-text">
+              Nota: Tu enlace estará activo permanentemente.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    <script src="js/editor.js"></script>
+
+    <div id="loading-preview-modal" class="loading-overlay hidden">
+      <div class="loading-spinner"></div>
+      <p>Cargando previsualización...</p>
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/editor.js"></script>
   </body>
 </html>

@@ -1,0 +1,468 @@
+/* public/css/preview-style.css */
+
+.next-view-btn {
+  margin-top: 30px;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  border-radius: 50px;
+  text-shadow: none;
+  cursor: pointer;
+  animation: fadeIn 1s 2s forwards;
+  opacity: 0;
+}
+
+.generate-url-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  font-size: 1.2em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  background-color: #e67e22;
+  color: white;
+  z-index: 100;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s 3s forwards;
+  opacity: 0;
+}
+.generate-url-btn:hover {
+  background-color: #d35400;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animación infinita para carrusel de imágenes */
+.image-carousel.infinite {
+  display: flex;
+  width: 200%; /* Duplicamos el ancho para el loop */
+  animation: infiniteSlide 20s linear infinite; /* 20s por ciclo, ajusta la duración */
+}
+
+.image-carousel.infinite img {
+  width: 50%; /* Cada imagen ocupa la mitad del contenedor duplicado (para que quepan en el viewport) */
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+@keyframes infiniteSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* Receiver Name Grande */
+.receiver-large {
+  font-size: clamp(3em, 12vw, 6em); /* Bien grande */
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Animación Fade para Imágenes */
+.image-carousel.fade {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.image-carousel.fade img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Suave fade 1s */
+}
+.image-carousel.fade img.active {
+  opacity: 1;
+}
+
+/* Botón Disco Música */
+.music-disc-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  animation: rotateDisc 4s linear infinite paused; /* Gira solo si playing */
+  z-index: 50;
+}
+.music-disc-btn.playing {
+  animation-play-state: running;
+}
+@keyframes rotateDisc {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Botón Disco Música */
+.music-disc-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  animation: rotateDisc 4s linear infinite paused;
+  z-index: 50;
+}
+.music-disc-btn.playing {
+  animation-play-state: running;
+}
+@keyframes rotateDisc {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modal Música */
+.music-modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px;
+  width: clamp(280px, 90%, 400px);
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+.music-disc-large {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 20px;
+  animation: rotateDisc 4s linear infinite paused;
+}
+.music-disc-large.playing {
+  animation-play-state: running;
+}
+#music-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+.music-controls-modal {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+.music-controls-modal button {
+  background: none;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: #333;
+}
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#progress-bar {
+  flex-grow: 1;
+  height: 5px;
+  border-radius: 5px;
+  background: #ddd;
+  appearance: none;
+}
+#progress-bar::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #3498db;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#current-time,
+#duration-time {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* --- ESTILOS PARA EL BOTÓN DE DISCO GIRATORIO --- */
+/* CORRECCIÓN: Posicionado abajo a la izquierda */
+.music-disc-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* Cambiado de 'right' a 'left' */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 50;
+  animation: rotateDisc 4s linear infinite paused; /* Inicia pausado */
+}
+
+.music-disc-btn.playing {
+  animation-play-state: running; /* Se activa con la clase 'playing' */
+}
+
+@keyframes rotateDisc {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- ESTILOS PARA EL MODAL DE MÚSICA (SIN CAMBIOS) --- */
+.music-modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px;
+  width: clamp(280px, 90%, 400px);
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  color: #333;
+  text-align: center;
+}
+
+.music-disc-large {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 20px;
+  border: 4px solid #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  animation: rotateDisc 4s linear infinite paused;
+}
+
+.music-disc-large.playing {
+  animation-play-state: running;
+}
+
+#music-title {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#progress-bar {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #dfe6e9;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #3498db;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#current-time,
+#duration-time {
+  font-size: 0.9em;
+  color: #636e72;
+  font-family: monospace;
+}
+
+.music-controls-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.music-controls-modal button {
+  background: none;
+  border: none;
+  font-size: 2.2em;
+  cursor: pointer;
+  color: #2d3436;
+  transition: transform 0.2s ease;
+}
+
+.music-controls-modal button:hover {
+  transform: scale(1.1);
+}
+
+.music-controls-modal button#play-pause-modal {
+  font-size: 2.8em;
+}
+
+/* ====================================================== */
+/* --- ESTILOS PARA EL MODAL DE COMPARTIR Y CÓDIGO --- */
+/* ====================================================== */
+
+.share-modal-content {
+  background: #ffffff;
+  backdrop-filter: none; /* No necesitamos blur si el fondo es sólido */
+  border-radius: 20px;
+  padding: 30px 40px;
+  width: clamp(300px, 90%, 500px);
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  color: #333;
+  text-align: center;
+}
+
+.share-modal-content h2 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.share-instructions {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.payment-number {
+  background-color: #f3f4f6;
+  border: 2px dashed #3498db;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #2980b9;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.btn.btn-primary {
+  background-color: #3498db;
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+.btn.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+.code-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#purchase-code-input {
+  flex-grow: 1;
+  padding: 12px;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+#purchase-code-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.code-status {
+  min-height: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.code-status.error {
+  color: #e74c3c;
+}
+.code-status.success {
+  color: #2ecc71;
+}
+
+.btn-secondary {
+  background: none;
+  border: none;
+  color: #7f8c8d;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+/* Estilos para la vista final */
+#final-url-input {
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  font-size: 1em;
+  border: 1px solid #2ecc71;
+  border-radius: 8px;
+  background-color: #f0fff4;
+  color: #27ae60;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#qr-code-container {
+  margin: 0 auto 20px;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+#qr-code-container img {
+  display: block;
+}
+
+.small-text {
+  font-size: 0.8em;
+  color: #7f8c8d;
+}
