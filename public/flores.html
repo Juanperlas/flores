@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>¡Tienes un Regalo Especial!</title>
+    <title>Un Regalo Especial Para Ti ✨</title>
     <meta property="og:title" content="Recibiste unas Flores Amarillas 🌻" />
     <meta
       property="og:description"
@@ -16,73 +16,192 @@
     <meta property="og:url" content="https://floramarilla.site" />
     <meta property="og:type" content="website" />
 
-    <link rel="stylesheet" href="css/viewer-style.css" />
-    <link rel="stylesheet" href="css/preview-style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/flores.css" />
   </head>
   <body id="stage-body" class="stage-body">
+    <!-- Gift Opening Screen -->
     <div id="gift-overlay" class="gift-overlay">
-      <div class="gift-box">
-        <div class="gift-icon">🎁</div>
-        <button id="open-gift-btn" class="open-gift-btn">¡Ábreme!</button>
+      <div class="gift-container">
+        <div class="gift-glow"></div>
+        <div class="gift-box">
+          <div class="gift-icon">🎁</div>
+          <h1 class="gift-title">Un Regalo Especial</h1>
+          <p class="gift-subtitle">
+            Alguien muy especial te ha preparado algo hermoso
+          </p>
+          <button id="open-gift-btn" class="open-gift-btn">
+            <span>Abrir Regalo</span>
+            <div class="btn-shimmer"></div>
+          </button>
+        </div>
+        <div class="floating-hearts">
+          <div class="heart">💖</div>
+          <div class="heart">✨</div>
+          <div class="heart">🌸</div>
+          <div class="heart">💕</div>
+          <div class="heart">🌟</div>
+        </div>
       </div>
     </div>
-    <div>
+
+    <!-- Added video intro screen that plays after opening gift -->
+    <div id="video-intro" class="video-intro hidden">
+      <video id="intro-video" class="intro-video" playsinline>
+        <source src="assets/flores.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay">
+        <div class="video-messages-container">
+          <h1 id="video-main-message" class="video-main-message"></h1>
+          <div class="video-sender-receiver">
+            <p id="video-sender" class="video-sender"></p>
+            <p id="video-receiver" class="video-receiver"></p>
+          </div>
+          <p id="video-secondary-message" class="video-secondary-message"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
       <div id="falling-elements-container"></div>
 
-      <div id="pre-1-view" class="preview-view">
-        <h1 id="intro-main-message" class="intro-title">Cargando...</h1>
-        <div class="sender-receiver-card">
-          <p>De: <span id="sender-name"></span></p>
-          <p>Para: <span id="receiver-name"></span></p>
+      <!-- Enhanced Main Content View with dynamic background and new layout -->
+      <div id="pre-2-view" class="preview-view main-view hidden">
+        <!-- New dynamic background container -->
+        <div class="dynamic-background-container">
+          <div id="dynamic-background" class="dynamic-background"></div>
+          <div class="background-overlay-main"></div>
         </div>
-        <p id="intro-secondary-message" class="secondary-message"></p>
-        <button id="next-view-btn" class="next-view-btn">Continuar ✨</button>
-      </div>
 
-      <div id="pre-2-view" class="preview-view hidden">
-        <h1 id="body-main-title" class="body-title"></h1>
-        <div
-          id="image-carousel-container"
-          class="image-carousel-container hidden"
-        >
-          <div id="image-carousel" class="image-carousel"></div>
+        <!-- Receiver name with elegant styling -->
+        <div class="receiver-header-elegant">
+          <h1 id="receiver-name-header" class="receiver-name-elegant"></h1>
         </div>
-        <button id="open-messages-modal-btn" class="messages-btn hidden">
-          <span class="icon">✉️</span> Mensajes
-        </button>
-        <button id="music-disc-btn" class="music-disc-btn hidden"></button>
-      </div>
 
-      <div id="messages-modal" class="modal hidden">
-        <div class="modal-content">
-          <span class="close-button">&times;</span>
+        <!-- New image carousel with infinite loop -->
+        <div class="image-carousel-elegant">
           <div
-            id="modal-messages-carousel"
-            class="modal-messages-carousel"
+            id="image-carousel-elegant"
+            class="carousel-images-container"
           ></div>
-          <button id="prev-message-btn" class="modal-carousel-btn prev-btn">
-            &lt;
+        </div>
+
+        <!-- New action buttons layout -->
+        <div class="action-buttons-elegant">
+          <button id="music-disc-btn" class="elegant-btn music-btn">
+            <div class="btn-background-image"></div>
+            <div class="btn-content">
+              <div class="music-icon">🎵</div>
+              <span>Música</span>
+            </div>
+            <div class="btn-glow-effect"></div>
           </button>
-          <button id="next-message-btn" class="modal-carousel-btn next-btn">
-            &gt;
+
+          <button id="open-messages-modal-btn" class="elegant-btn messages-btn">
+            <div class="btn-content">
+              <div class="messages-icon">💌</div>
+              <span>Mensajes</span>
+            </div>
+            <div class="btn-glow-effect"></div>
           </button>
+        </div>
+
+        <!-- Flower bouquet at bottom -->
+        <div class="flower-bouquet-container">
+          <img
+            src="assets/ramoflores.png"
+            alt="Ramo de flores"
+            class="flower-bouquet"
+          />
         </div>
       </div>
 
-      <div id="music-modal" class="modal hidden">
-        <div class="music-modal-content">
-          <span class="close-button">&times;</span>
-          <div id="music-disc-large" class="music-disc-large"></div>
-          <h2 id="music-title">Cargando...</h2>
-          <div class="progress-container">
-            <span id="current-time">0:00</span>
-            <input type="range" id="progress-bar" min="0" value="0" />
-            <span id="duration-time">0:00</span>
+      <!-- Messages Modal -->
+      <div id="messages-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content messages-modal-content">
+          <button class="close-button">×</button>
+          <h2 class="modal-title">Mensajes del Corazón</h2>
+          <div class="modal-messages-carousel-container">
+            <div
+              id="modal-messages-carousel"
+              class="modal-messages-carousel"
+            ></div>
+            <button id="prev-message-btn" class="carousel-nav-btn prev-btn">
+              ‹
+            </button>
+            <button id="next-message-btn" class="carousel-nav-btn next-btn">
+              ›
+            </button>
           </div>
-          <div class="music-controls-modal">
-            <button id="rewind-5s">« 5s</button>
-            <button id="play-pause-modal">▶️</button>
-            <button id="forward-5s">5s »</button>
+        </div>
+      </div>
+
+      <!-- Enhanced Music Modal with elegant design -->
+      <div id="music-modal" class="modal hidden">
+        <div class="modal-backdrop-elegant"></div>
+        <div class="modal-content music-modal-elegant">
+          <button class="close-button-elegant">×</button>
+
+          <!-- New elegant music player design -->
+          <div class="music-player-elegant">
+            <div class="music-disc-container">
+              <div id="music-disc-large" class="music-disc-elegant">
+                <div class="disc-rings"></div>
+                <div class="disc-center-elegant"></div>
+              </div>
+            </div>
+
+            <div class="music-info">
+              <h2 id="music-title" class="music-title-elegant">Cargando...</h2>
+              <p class="music-subtitle">Reproduciendo ahora</p>
+            </div>
+
+            <div class="progress-container-elegant">
+              <div class="time-info">
+                <span id="current-time" class="time-display-elegant">0:00</span>
+                <span id="duration-time" class="time-display-elegant"
+                  >0:00</span
+                >
+              </div>
+              <div class="progress-track-elegant">
+                <input
+                  type="range"
+                  id="progress-bar"
+                  min="0"
+                  value="0"
+                  class="progress-slider-elegant"
+                />
+                <div class="progress-fill-elegant"></div>
+              </div>
+            </div>
+
+            <div class="music-controls-elegant">
+              <button id="rewind-5s" class="control-btn-elegant">
+                <span>⏪</span>
+              </button>
+              <button
+                id="play-pause-modal"
+                class="control-btn-elegant play-btn-elegant"
+              >
+                <span>▶️</span>
+              </button>
+              <button id="forward-5s" class="control-btn-elegant">
+                <span>⏩</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
